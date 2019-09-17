@@ -1,5 +1,5 @@
 # AnyReminder-ChromeExtension
-This is a Any Reminder Extension for Google Chrome
+This is a Any Reminder Extension for Google Chrome.
 
 
 
