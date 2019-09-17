@@ -1,5 +1,5 @@
-# WaterReminder-ChromeExtension
-This is a Water Reminder Extension for Google Chrome
+# AnyReminder-ChromeExtension
+This is a Any Reminder Extension for Google Chrome
 
 
 
@@ -15,7 +15,7 @@ This is a Water Reminder Extension for Google Chrome
 
 ## Changing Options
 
-Right Click on the glass icon on the top right side of chrome. Select options from the menu. 
+Right Click on the  icon on the top right side of chrome. Select options from the menu. 
 
 You can change time interval, message and goal from the options menu.
 
@@ -26,13 +26,10 @@ You can change time interval, message and goal from the options menu.
 
 ###### Notifications
 
-![notification](https://user-images.githubusercontent.com/22031979/38981477-24fed272-43dd-11e8-8d97-e5eadbd52111.jpg)
 
 
 ###### Options page
 
-
-![options page](https://user-images.githubusercontent.com/22031979/38981402-f5cd1874-43dc-11e8-93a5-7654a582df59.jpg)
 
 
 
