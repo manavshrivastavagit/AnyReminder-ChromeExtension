@@ -1,30 +1,131 @@
 <!doctype html>
 <html>
   <head>
-    <title>Water Notification - Set Interval</title>
+    <title>Any Reminder - Manage Settings</title>
     <script src="jquery-3.3.1.js"></script>
     <!-- <script src="options.js"></script> -->
     <link href="options_style.css" rel="stylesheet" type="text/css">
     <script src="notification_options.js"></script>
     <link rel="stylesheet" href="bootstrap.min.css">
     <!-- <link rel="stylesheet" href="options.css"> -->
+    <link  href="node_modules/@chenfengyuan/datepicker/dist/datepicker.css" rel="stylesheet">
+    <script src="node_modules/@chenfengyuan/datepicker/dist/datepicker.js"></script>
+
+    <link  href="jquery-clockpicker.min.css" rel="stylesheet">
+    <script src="jquery-clockpicker.min.js"></script>
+
+    <script>
+    $( function() {
+        $('[data-toggle="datepicker"]').datepicker({
+            autoHide : true
+        });
+      } );
+      </script>
+
   </head>
   <body>
     <div class="wrap">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src="water.gif" alt="" class="water" id="glass">
+                    <h1 class="head"> <img src="icon-big.png" alt="" class="Any" id="glass" style="width: 100px; font-size: 50px;"> Any Reminder</h1>
+                    <div class="allcards" style="max-height: 400px; overflow-y: scroll;">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Holy guacamole!</strong>
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <span class="badge badge-primary">Primary</span>
+            <span class="badge badge-secondary">Secondary</span>
+            <span class="badge badge-success">Success</span>
+            <span class="badge badge-danger">Danger</span>
+            <span class="badge badge-warning">Warning</span>
+            <span class="badge badge-info">Info</span>
+            <span class="badge badge-light">Light</span>
+            <span class="badge badge-dark">Dark</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Holy guacamole!</strong>
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Holy guacamole!</strong>
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Holy guacamole!</strong>
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Holy guacamole!</strong>
+                                        You should check in on some of those fields below.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="col-md-6 col-sm-12 col-xs-12 textClass">
-                    <h1 class="head">
-                        <img src="icon.png" alt="Toast">
-                        Water Reminder
+                    <h1 style=" font-size: 20px !important;
+                    color: #00b6e8;">
+                        Create A New Reminder
                       </h1>
-                      <h2></h2>
+                      
     
                       <form id="options" class="row">
+                            <div class="col-md-12">
+                                    <h1 style="float: left;">Set Your Reminder Message</h1>
+                            </div>
+                               <div class="col-md-12">
+                                   <input type="text" id="goal" class="goalClass" placeholder="Enter Your Reminder Message Here">
+                                   <hr>
+                                </div>
+                                
+                              
                           <div class="col-md-6">
+                                <p>Date: <input data-toggle="datepicker">
+                                   </p>
+
+                                   <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+                                        <input type="text" class="form-control" value="13:14">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-time"></span>
+                                        </span>
+                                    </div>
+                                    <script type="text/javascript">
+                                    $('.clockpicker').clockpicker();
+                                    </script>
+
                               <input type="checkbox" name="isActivated" checked class="check">
                               Notify me on every&nbsp;
                           </div>
@@ -48,9 +149,8 @@
                       </form>
 
                       <div class="goalClass">
-                        <h1 class="goalHead">Set Your Goal for Today</h1>
 
-                        <form id="soundOptions" class="row">
+                        <!-- <form id="soundOptions" class="row">
                                 <div class="col-md-6 soundNotification">
                                     <input type="checkbox" name="isSoundActivated" checked class="check" id="soundCheck">
                                     Notification Sound&nbsp;
@@ -62,11 +162,11 @@
                                         <select name="sound" id="sound">
                                                 <option>A Beautiful Drop</option>
                                                 <option>Light</option>
-                                                <option>Multiple Water Drops</option>
+                                                <option>Multiple Any Drops</option>
                                                 <option>To the Point</option>
-                                                <option>Water Drop</option>
-                                                <option>Water Splash Ploor</option>
-                                                <option>Water Splash</option>
+                                                <option>Any Drop</option>
+                                                <option>Any Splash Ploor</option>
+                                                <option>Any Splash</option>
                                                 <option>Android Notification</option>
                                                 <option>Bell</option>
                                                 <option>Bubble</option>
@@ -76,25 +176,14 @@
                                                 <option>Text Notification</option>
                                         </select>
                                 </div>
-                        </form>
+                        </form> -->
 
                         <div class="row">
+                           
+                            
+                           
                             <div class="col-md-12">
-                                <p class="messageLabel">Your Message</p>
-                                <input type="text" id="message" class="messageClass">
-                            </div>
-                            <div class="col-md-4">
-                                 <h2>Goal for Today:</h2>
-                            </div>
-                            <div class="col-md-2">
-                                <!-- <h2>Goal:</h2> -->
-                                <input type="text" id="goal" class="goalClass">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="submit" name="" id="reset" value="Reset Total" class="reset"/>
-                            </div>
-                            <div class="col-md-12">
-                                <input type="submit" name="" id="save" value="Save Changes" class="save"/>
+                                <input type="submit" name="" id="save" value="Save Reminder" class="save"/>
                             </div>
                         </div>
                       </div>

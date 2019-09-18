@@ -1,32 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Water Tracker</title>
-    <script src="jquery-3.3.1.js"></script>
-    <script src="popup.js"></script>
-    <link rel="stylesheet" href="popup.css">
-</head>
-<body>
-    <div class="image">
-            <img src="images/one.gif" alt="" id="glass">
-    </div>
-   
-    <h1>Water Tracker</h1>
 
-    <!-- <h2>Total Glass Consumed : </h2> -->
-    <h2>Consumed : <span id="total">0</span> &nbsp; &nbsp;&nbsp;Today's Goal : <span id="goal">0</span></h2>
-    <h3>Enter No. of Glasses Consumed : </h3>
-    <!-- <input type="text" id="amount"/> -->
-    <select name="frequency" id="amount">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-    </select> 
-    <input  class="buttonClass" type="submit" name="" id="addAmount" value="Add Glass">
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Any Reminder</title>
+        <!-- <script src="jquery-3.3.1.js"></script> -->
+        <script src="popup.js"></script>
+
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous">
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+        <link href="font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="popup.css">
+    </head>
+
+    <body>
+        <!-- <script>alert("df")</script> -->
+        <div
+            class="container-fluid"
+            style=" padding-right:0;
+                    padding-left:0;
+                    margin-right:auto;
+                    margin-left:auto">
+            <div class="row">
+                <div class="col-md-12" style=" ">
+
+                    <div style="font-size: 15px; margin:5px; float: left;color:rgba(10, 33, 240, 0.678); font-weight: bold; ">
+                        <img src="icon.png" width="40px;margin-top: -5px;"> Any Reminder
+                    </div>
+
+                    <a
+                        href="notification_options.html"
+                        target="_blank"
+                        style="float: right; margin:5px;">
+                        <span class="oi oi-cog" title="oi-cog" aria-hidden="true"></span>
+                    </a>
+
+                </div>
+
+            </div>
+            
+            <div class="allcards" style="max-height: 400px; overflow-y: scroll;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong>
+                            You should check in on some of those fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <span class="badge badge-primary">Primary</span>
+<span class="badge badge-secondary">Secondary</span>
+<span class="badge badge-success">Success</span>
+<span class="badge badge-danger">Danger</span>
+<span class="badge badge-warning">Warning</span>
+<span class="badge badge-info">Info</span>
+<span class="badge badge-light">Light</span>
+<span class="badge badge-dark">Dark</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong>
+                            You should check in on some of those fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong>
+                            You should check in on some of those fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong>
+                            You should check in on some of those fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong>
+                            You should check in on some of those fields below.
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row" style="margin: 10px;">
+                <div class="col-md-12">
+                        <a
+                        href="notification_options.html"
+                        target="_blank"
+                       >
+                    <input
+                        class="buttonClass"
+                        type="submit"
+                        name=""
+                        id="addReminder"
+                        value="+ New Reminder"> </a>
+                </div>
+            </div>
+
+            <!--container end-->
+        </div>
+
+    </body>
+
 </html>

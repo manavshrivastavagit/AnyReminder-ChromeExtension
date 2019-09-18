@@ -1,5 +1,5 @@
 function audioNotification(notificationSound){
-  console.log("notidfication Sound Passed : "+notificationSound);
+  console.log("notification Sound Passed : "+notificationSound);
   var sound = new Audio('audio/'+notificationSound+'.mp3');
   sound.play();
 }

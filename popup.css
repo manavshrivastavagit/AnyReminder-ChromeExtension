@@ -4,13 +4,11 @@ h1{
     font-weight: 100;
     text-align: center;
 }
-img{
-    width: 250px; 
-    height: auto;
-    margin: 0 auto;
-}
+
 html{
     width: 276px;
+    height: 500px;
+    overflow:scroll;
     padding: 0px 10px 10px 10px !important;
     /* background: white url("wave.jpg") no-repeat fixed bottom;  */
 }
