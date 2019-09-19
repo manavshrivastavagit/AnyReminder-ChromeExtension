@@ -114,15 +114,50 @@ if (window.Notification) {
           items.reminders && items.reminders.length > 0 && items
               .reminders
               .forEach(function (reminder, index) {
-                console.log(reminder.startDate);
-                // var reminderDate = new Date('04/01/1991 ' + reminder.startTime  );
-                var hours =  new Date(reminder.startTime ).getHours;
-                var mins =  new Date(reminder.startTime ).getMinutes;
-                var reminderDate = new Date(reminder.startDate,hours +':'+ mins  );
-                console.log(reminderDate);
+                // console.log(reminder.startDate);
+                var reminderTime = new Date('04/01/1991 ' + reminder.startTime  );
+                // var reminderTime =  new Date(reminder.startTime );
+                var reminderDate = new Date(reminder.startDate );
+                var currentDate = new Date();
+                
+                if( (currentDate.getDate() == reminderDate.getDate()) 
+                  && (currentDate.getMonth() == reminderDate.getMonth()) 
+                  && (currentDate.getFullYear() == reminderDate.getFullYear()) ){
+                    console.log("==");
+                  console.log(reminderTime.getHours());
+                  console.log(currentDate.getHours());
+                  /* checking with reminder startTime */
+                  if( (currentDate.getHours() == reminderTime.getHours()) && (currentDate.getMinutes() == reminderTime.getMinutes()) ){
+                    console.log("time ==")
+                    var opt = {
+                      type: "basic",
+                      title: reminder.message,
+                      message : 'Any Reminder: ' + reminder.message,
+                      iconUrl:"icon.png"
+                  }
+                  chrome.notifications.create( reminder.startTime, opt, function(){
+                    var sound = new Audio('audio/' + reminder.sound + '.mp3');
+                    sound.play();
+                  });
+                  }
+                }else{
+                  console.log("not =");
+                //   var opt = {
+                //     type: "basic",
+                //     title: reminder.message,
+                //     message : reminder.message,
+                //     iconUrl:"icon.png"
+                // }
+                // chrome.notifications.create( opt, function(){
+                //   var sound = new Audio('audio/' + reminder.sound + '.mp3');
+                //   sound.play();
+                // });
+                  console.log(currentDate.getDate());
+                  console.log(reminderDate.getDate());
+                }
               });
 
           
       });
-  }, 2000);
+  }, 5000);
 }
