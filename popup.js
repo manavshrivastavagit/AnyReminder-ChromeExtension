@@ -1,83 +1,115 @@
-$(function(){
+$(function () {
+    // alert("sd")
 
-    chrome.storage.sync.get(['total','goal'], function(items){
+    showAllCards();
+    $(document).on("click", ".close", function (event) {
+        var index = $(this).attr('id');
+        var txt;
+        var r = confirm("Are you want to delete this Reminder?");
+        if (r == true) {
+            if (index > -1) {
+                reminders.splice(index, 1);
+            }
 
+            console.log(reminders);
+            $(this)
+                .parent()
+                .parent()
+                .remove();
+            chrome
+                .storage
+                .sync
+                .set({
+                    'reminders': reminders
 
+                }, function () {
+                    var opt = {
+                        type: "basic",
+                        title: "Changes Saved Successfully.",
+                        message: "Changes Saved Successfully!",
+                        iconUrl: "icon.png"
+                    }
+                    chrome
+                        .notifications
+                        .create('saveChanges', opt, function () {});
+                    showAllCards();
+                });
+        } else {
+            txt = "You pressed Cancel!";
+            alert(txt)
+        }
 
-        var defaultValue=0;
-        
-        if(items.total == null || items.total == ""){
-            $('#total').text(defaultValue); 
-        }
-        if(items.goal == null || items.total == ""){
-            $('#goal').text(defaultValue); 
-        }
-
-        $('#total').text(items.total);
-        $('#goal').text(items.goal);
-        // $('#amount').value("1");
-
-        var percentage = (items.total/items.goal)*100;
-        
-        if(percentage<10 && percentage>=0){
-            $("#glass").attr("src","images/one.gif");
-        }
-        else if(percentage<25 && percentage>=10){
-            $("#glass").attr("src","images/two.gif");
-        }
-        else if(percentage<50 && percentage>=25){
-            $("#glass").attr("src","images/three.gif");
-        }
-        else if(percentage<75 && percentage>=50){
-            $("#glass").attr("src","images/four.gif");
-        }
-        else if(percentage<100 && percentage>=75){
-            $("#glass").attr("src","images/five.gif");
-        }
-        else if(percentage>=100){
-            $("#glass").attr("src","images/goal.gif");
-        }
-        else{
-            $("#glass").attr("src","images/one.gif");
-        }
-    
     });
 
-
-
-    $('#addAmount').click(function(){
-       
-
-        chrome.storage.sync.get(['total','goal'], function (items){
-            var newTotal = 0;
-            if(items.total){
-                newTotal += parseInt(items.total);
-            }
-
-            var amount = $('#amount').val();
-
-            if(amount) {
-                newTotal+= parseInt(amount);
-            }
-
-            chrome.storage.sync.set({'total': newTotal});
-            $('#total').text(newTotal);
-            $('#amount').val('');
-
-            if(newTotal >= items.goal){
-                
-                var opt = {
-                    type: "basic",
-                    title: "Goal Reached. Well Done!",
-                    message : "You Reached Your Goal " + items.goal + " !",
-                    iconUrl:"icon.png"
-                }
-
-                chrome.notifications.create('goalReached', opt, function(){});
-            }
-            close();
-
-        })
-
-    });
 });
+
+function formatAMPM(date) {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    console.log(date)
+    console.log(minutes)
+    // minutes = minutes && minutes < 10 ? '0'+minutes : '00';
+    minutes = ('0'+minutes).slice(-2);
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  }
+  
+  function formatDate(date) {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+  
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+  
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+
+function showAllCards() {
+    chrome
+        .storage
+        .sync
+        .get(['reminders'], function (items) {
+            reminders = items.reminders;
+            console.log('showAllCards');
+            console.log(items.reminders);
+            $("#allcards").empty();
+            items.reminders && items.reminders.length > 0 && items
+                .reminders
+                .forEach(function (reminder, index) {
+
+                    $("#allcards").prepend(
+                        `<div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>` +
+                        reminder.message + `</strong> <br><span class="badge badge-primary">` +
+                        this.formatDate(new Date(reminder.startDate)) + `</span> <span class="badge badge-secondary">` +
+                        this.formatAMPM(new Date('04/01/1991 ' + reminder.startTime)) + `</span>
+                        
+                    <button type="button" id="` + index +
+                        `" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>`
+                    );
+                });
+
+            $('#message').val(items.message);
+            $('#sound').val(items.sound);
+
+            if (items.sound == null || items.sound == "") {
+                $('#sound').val("A Beautiful Drop");
+            }
+
+        });
+}

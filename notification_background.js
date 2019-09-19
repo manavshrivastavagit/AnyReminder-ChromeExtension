@@ -3,6 +3,50 @@ function audioNotification(notificationSound){
   var sound = new Audio('audio/'+notificationSound+'.mp3');
   sound.play();
 }
+function showAllCards() {
+  alert("all cards")
+  chrome
+      .storage
+      .sync
+      .get(['reminders'], function (items) {
+          reminders = items.reminders;
+          console.log('showAllCards');
+          console.log(items.reminders);
+          $("#allcards").empty();
+          items.reminders && items.reminders.length > 0 && items
+              .reminders
+              .forEach(function (reminder, index) {
+
+                  $("#allcards").prepend(
+                      `<div class="row">
+          <div class="col-md-12">
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>` +
+                      reminder.message + `</strong>` + index +
+                      `
+                  <button type="button" id="` + index +
+                      `" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          </div>
+      </div>`
+                  );
+              });
+
+          $('#message').val(items.message);
+          $('#sound').val(items.sound);
+
+          if (items.sound == null || items.sound == "") {
+              $('#sound').val("A Beautiful Drop");
+          }
+
+      });
+  $('#message').focus();
+}
+
+
+
 
 function show() {
   var time = /(..)(:..)/.exec(new Date());     
@@ -16,7 +60,7 @@ function show() {
      notificationSound=items.sound;
 
      if(message == ""){
-      message = 'Hi, Friend. Time to drink some WATER.'
+      message = 'Hi, Friend. Time to set a notes.'
     }
     
     new Notification(hour + time[2] + ' ' + period, {
@@ -37,14 +81,14 @@ if (!localStorage.isInitialized) {
   localStorage.frequency = 1;        
   localStorage.isInitialized = true; 
   localStorage.isSoundActivated = true;
-  var goal=10;
-  var message = "Hello Friend, Looks like  it's time to drink some water.";
+  var notes=10;
+  var message = "Hello Friend!";
   var sound = "Bubble";
   var total = 0;
-  chrome.storage.sync.set({ 'goal' :goal, 'message':message, 'sound': sound, 'total' : total}, function(){
+  chrome.storage.sync.set({ 'notes' :notes, 'message':message, 'sound': sound, 'total' : total}, function(){
     var opt = {
         type: "basic",
-        title: "Thank You for Downloading. We will keep you hydrated.",
+        title: "Thank You for Downloading. We will keep you updated.",
         message : "Right click on the icon at the top and select options to change settings.",
         iconUrl:"icon.png"
     }
@@ -54,16 +98,31 @@ if (!localStorage.isInitialized) {
 }
 
 if (window.Notification) {
-  if (JSON.parse(localStorage.isActivated)) { show(); }
+  // if (JSON.parse(localStorage.isActivated)) { show(); }
   var interval = 0; 
   setInterval(function() {
-    interval++;
-    if (
-      JSON.parse(localStorage.isActivated) &&
-        localStorage.frequency <= interval
-    ) {
-      show();
-      interval = 0;
-    }
-  }, 60000);
+   console.log("timer");
+   var currentDate = new Date();
+  
+   chrome
+      .storage
+      .sync
+      .get(['reminders'], function (items) {
+          reminders = items.reminders;
+          console.log('showAllCards');
+          console.log(items.reminders);
+          items.reminders && items.reminders.length > 0 && items
+              .reminders
+              .forEach(function (reminder, index) {
+                console.log(reminder.startDate);
+                // var reminderDate = new Date('04/01/1991 ' + reminder.startTime  );
+                var hours =  new Date(reminder.startTime ).getHours;
+                var mins =  new Date(reminder.startTime ).getMinutes;
+                var reminderDate = new Date(reminder.startDate,hours +':'+ mins  );
+                console.log(reminderDate);
+              });
+
+          
+      });
+  }, 2000);
 }

@@ -1,35 +1,38 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Any Reminder - Manage Settings</title>
-    <script src="jquery-3.3.1.js"></script>
-    <!-- <script src="options.js"></script> -->
-    <link href="options_style.css" rel="stylesheet" type="text/css">
-    <script src="notification_options.js"></script>
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="options.css"> -->
-    <link  href="node_modules/@chenfengyuan/datepicker/dist/datepicker.css" rel="stylesheet">
-    <script src="node_modules/@chenfengyuan/datepicker/dist/datepicker.js"></script>
+    <head>
+        <title>Any Reminder - Manage Settings</title>
+        <script src="jquery-3.3.1.js"></script>
+        <!-- <script src="options.js"></script> -->
+        <link href="options_style.css" rel="stylesheet" type="text/css">
+        <script src="notification_options.js"></script>
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="options.css"> -->
+        <link
+            href="node_modules/@chenfengyuan/datepicker/dist/datepicker.css"
+            rel="stylesheet">
+        <script src="node_modules/@chenfengyuan/datepicker/dist/datepicker.js"></script>
 
-    <link  href="jquery-clockpicker.min.css" rel="stylesheet">
-    <script src="jquery-clockpicker.min.js"></script>
+        <link href="jquery-clockpicker.min.css" rel="stylesheet">
+        <script src="jquery-clockpicker.min.js"></script>
 
-    <script>
-    $( function() {
-        $('[data-toggle="datepicker"]').datepicker({
-            autoHide : true
-        });
-      } );
-      </script>
+       
 
-  </head>
-  <body>
-    <div class="wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1 class="head"> <img src="icon-big.png" alt="" class="Any" id="glass" style="width: 100px; font-size: 50px;"> Any Reminder</h1>
-                    <div class="allcards" style="max-height: 400px; overflow-y: scroll;">
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="head">
+                            <img
+                                src="icon-big.png"
+                                alt=""
+                                class="Any"
+                                id="glass"
+                                style="width: 100px; font-size: 50px;">
+                            Any Reminder</h1>
+                        <div id="allcards" style="max-height: 400px; overflow-y: scroll;">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -39,160 +42,142 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                         <span class="badge badge-primary">Primary</span>
-            <span class="badge badge-secondary">Secondary</span>
-            <span class="badge badge-success">Success</span>
-            <span class="badge badge-danger">Danger</span>
-            <span class="badge badge-warning">Warning</span>
-            <span class="badge badge-info">Info</span>
-            <span class="badge badge-light">Light</span>
-            <span class="badge badge-dark">Dark</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <strong>Holy guacamole!</strong>
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <strong>Holy guacamole!</strong>
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <strong>Holy guacamole!</strong>
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                        <strong>Holy guacamole!</strong>
-                                        You should check in on some of those fields below.
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                        <span class="badge badge-secondary">Secondary</span>
+                                        <span class="badge badge-success">Success</span>
+                                        <span class="badge badge-danger">Danger</span>
+                                        <span class="badge badge-warning">Warning</span>
+                                        <span class="badge badge-info">Info</span>
+                                        <span class="badge badge-light">Light</span>
+                                        <span class="badge badge-dark">Dark</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                </div>
-                <div class="col-md-6 col-sm-12 col-xs-12 textClass">
-                    <h1 style=" font-size: 20px !important;
-                    color: #00b6e8;">
-                        Create A New Reminder
-                      </h1>
-                      
-    
-                      <form id="options" class="row">
-                            <div class="col-md-12">
-                                    <h1 style="float: left;">Set Your Reminder Message</h1>
-                            </div>
-                               <div class="col-md-12">
-                                   <input type="text" id="goal" class="goalClass" placeholder="Enter Your Reminder Message Here">
-                                   <hr>
-                                </div>
-                                
-                              
-                          <div class="col-md-6">
-                                <p>Date: <input data-toggle="datepicker">
-                                   </p>
-
-                                   <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
-                                        <input type="text" class="form-control" value="13:14">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-time"></span>
-                                        </span>
-                                    </div>
-                                    <script type="text/javascript">
-                                    $('.clockpicker').clockpicker();
-                                    </script>
-
-                              <input type="checkbox" name="isActivated" checked class="check">
-                              Notify me on every&nbsp;
-                          </div>
-                          <div class="col-md-6">
-                              <select name="frequency">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>5</option>
-                                  <option>10</option>
-                                  <option>15</option>
-                                  <option>20</option>
-                                  <option>30</option>
-                                  <option>60</option>
-                                  <option>120</option>
-                                  <option>180</option>
-                                  <option>240</option>
-                                </select>
-                                &nbsp; &nbsp;
-                                minute(s).
-                          </div>
-                      </form>
-
-                      <div class="goalClass">
-
-                        <!-- <form id="soundOptions" class="row">
-                                <div class="col-md-6 soundNotification">
-                                    <input type="checkbox" name="isSoundActivated" checked class="check" id="soundCheck">
-                                    Notification Sound&nbsp;
-                                </div>
-                                <div class="col-md-1 playClass" id="playAudio">
-                                    <img src="play.png" alt="" class="play">
-                                </div>
-                                <div class="col-md-5 soundNotification">
-                                        <select name="sound" id="sound">
-                                                <option>A Beautiful Drop</option>
-                                                <option>Light</option>
-                                                <option>Multiple Any Drops</option>
-                                                <option>To the Point</option>
-                                                <option>Any Drop</option>
-                                                <option>Any Splash Ploor</option>
-                                                <option>Any Splash</option>
-                                                <option>Android Notification</option>
-                                                <option>Bell</option>
-                                                <option>Bubble</option>
-                                                <option>Message</option>
-                                                <option>Plucky</option>
-                                                <option>Short Notification</option>
-                                                <option>Text Notification</option>
-                                        </select>
-                                </div>
-                        </form> -->
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 textClass">
+                        <h1
+                            style=" font-size: 20px !important;
+                            color: #00b6e8;">
+                            Create A New Reminder
+                        </h1>
 
                         <div class="row">
-                           
-                            
-                           
+                            <div class="col-md-12">
+                                <h1 style="float: left;">Set Your Reminder Message</h1>
+
+                                <input
+                                    type="text"
+                                    id="message"
+                                    class="goalClass"
+                                    placeholder="Enter Your Reminder Message Here">
+                                <hr>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                Date:
+                                <input type="date" min="2019-01-01" max="2099-12-31" id="startDate">
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <span style="margin-top: 7px;">Time: &nbsp;
+                                </span>
+                                <input type="time" value="00:00" id="startTime">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="checkbox" name="isActivated" checked="checked" class="check">
+                                Does not repeat. &nbsp;
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                Repeat Frequency:
+                                <select name="frequency">
+                                    <option>Daily</option>
+                                    <option>Weekly</option>
+                                    <option>Monthly</option>
+                                    <option>Annually</option>
+                                    <option>Minute(s)</option>
+                                    <option>Hour(s)</option>
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                Repeat :
+                                <input type="date">
+                                <input type="time">
+
+                            </div>
+                        </div>
+
+                        <form id="soundOptions" class="row">
+                            <div class="col-md-6
+                        soundNotification">
+                                <input
+                                    type="checkbox"
+                                    name="isSoundActivated"
+                                    checked="checked"
+                                    class="check"
+                                    id="soundCheck">
+                                Notification Sound&nbsp;
+                            </div>
+                            <div class="col-md-1 playClass" id="playAudio">
+                                <img src="play.png" alt="" class="play">
+                            </div>
+                            <div class="col-md-5 soundNotification">
+                                <select name="sound" id="sound">
+                                    <option>A Beautiful Drop</option>
+                                    <option>Light</option>
+                                    <option>Multiple Any Drops</option>
+                                    <option>To the Point</option>
+                                    <option>Any Drop</option>
+                                    <option>Any Splash Ploor</option>
+                                    <option>Any Splash</option>
+                                    <option>Android Notification</option>
+                                    <option>Bell</option>
+                                    <option>Bubble</option>
+                                    <option>Message</option>
+                                    <option>Plucky</option>
+                                    <option>Short Notification</option>
+                                    <option>Text Notification</option>
+                                </select>
+                            </div>
+                        </form>
+
+                        <div class="row">
+
+                            <div class="col-md-12" id="confirmMessage">
+                                Repeat Every 10 min(s)
+                            </div>
+                        </div>
+
+                        <div class="row">
+
                             <div class="col-md-12">
                                 <input type="submit" name="" id="save" value="Save Reminder" class="save"/>
                             </div>
                         </div>
-                      </div>
+                    </div>
 
                 </div>
             </div>
         </div>
-       
+
     </div>
-    <p class="copy">copyright  	&copy; Divin Divakaran</p>
-  </body>
+    <p class="copy">copyright &copy; Divin Divakaran</p>
+</body>
 </html>
