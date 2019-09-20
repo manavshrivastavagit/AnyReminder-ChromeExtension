@@ -50,3 +50,15 @@ span{
     background-color:#fff !important; 
     color: #509fc1 !important;
 }
+.save{
+    width: 100% !important;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #fce63e;
+  }
+
+  .save:hover{
+    color: white;
+    background-color: #00b6e8;
+    cursor: pointer;
+  }

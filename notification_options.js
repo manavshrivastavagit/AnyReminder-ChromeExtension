@@ -1,8 +1,8 @@
 function setNotification(isDeactivated) {
-    options.style.color = isDeactivated
-        ? 'graytext'
-        : 'black';
-    options.frequency.disabled = isDeactivated;
+    // options.style.color = isDeactivated
+    //     ? 'graytext'
+    //     : 'black';
+    // options.frequency.disabled = isDeactivated;
 }
 
 function setNotificationSound(isDeactivated) {
@@ -84,8 +84,6 @@ function formatDate(date) {
   return day + ' ' + monthNames[monthIndex] + ' ' + year;
 }
 
-
-
 function storeReminder(allreminders) {
     if (allreminders.length > 0) {
         // alert(JSON.stringify(allreminders))
@@ -117,32 +115,32 @@ window.addEventListener('load', function () {
 
     // options.isActivated.checked = JSON.parse(localStorage.isActivated);
     // options.frequency.value = localStorage.frequency;
-    soundOptions.isSoundActivated.checked = JSON.parse(
-        localStorage.isSoundActivated
-    );
-    // soundOptions.isSoundActivated.checked =
-    // JSON.parse(localStorage.isSoundActivated);
+    // soundOptions.isSoundActivated.checked = JSON.parse(
+    //     localStorage.isSoundActivated
+    // );
+    // // soundOptions.isSoundActivated.checked =
+    // // JSON.parse(localStorage.isSoundActivated);
 
-    if (!options.isActivated.checked) {
-        setNotification(true);
-    }
+    // if (!options.isActivated.checked) {
+    //     setNotification(true);
+    // }
 
-    options.isActivated.onchange = function () {
-        localStorage.isActivated = options.isActivated.checked;
-        setNotification(!options.isActivated.checked);
-    };
+    // options.isActivated.onchange = function () {
+    //     localStorage.isActivated = options.isActivated.checked;
+    //     setNotification(!options.isActivated.checked);
+    // };
 
-    if (!soundOptions.isSoundActivated.checked) {
-        setNotificationSound(true);
-    }
+    // if (!soundOptions.isSoundActivated.checked) {
+    //     setNotificationSound(true);
+    // }
 
-    soundOptions.isSoundActivated.onchange = function () {
-        setNotificationSound(!soundOptions.isSoundActivated.checked);
-    };
+    // soundOptions.isSoundActivated.onchange = function () {
+    //     setNotificationSound(!soundOptions.isSoundActivated.checked);
+    // };
 
-    options.frequency.onchange = function () {
-        localStorage.frequency = options.frequency.value;
-    };
+    // options.frequency.onchange = function () {
+    //     localStorage.frequency = options.frequency.value;
+    // };
 
 });
 
@@ -150,18 +148,19 @@ $(function () {
 
     $('[data-toggle="datepicker"]').datepicker({autoHide: true});
     $('.clockpicker').clockpicker();
-    $('#message').focus();
+   
     
     var today = new Date();
     $('#startDate').val(today.getFullYear() + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + ('0' + today.getDate()).slice(-2));
-    $('#startTime').val(today.getHours()+':'+today.getMinutes());
+    $('#startTime').val( ('0' + (today.getHours() )).slice(-2)+':'+ ('0' + (today.getMinutes())).slice(-2));
 
     showAllCards();
+    $('#message').focus();
 
     $(document).on("click", ".close", function (event) {
         var index = $(this).attr('id');
         var txt;
-        var r = confirm("Are you want to delete this Reminder?");
+        var r = confirm("Do you want to delete this Reminder?");
         if (r == true) {
             if (index > -1) {
                 reminders.splice(index, 1);
@@ -191,7 +190,7 @@ $(function () {
                     showAllCards();
                 });
         } else {
-            return
+            return false
         }
 
     });
@@ -230,23 +229,6 @@ $(function () {
         localStorage.isSoundActivated = $('#soundCheck').is(":checked");
     });
 
-    $('#reset').click(function () {
-        chrome
-            .storage
-            .sync
-            .set({
-                'total': 0
-            }, function () {
-                var opt = {
-                    type: "basic",
-                    title: "Total Reset",
-                    message: "Total Number of Glasses Consumed Today has been reset to zero.",
-                    iconUrl: "icon.png"
-                }
-                chrome
-                    .notifications
-                    .create('reset', opt, function () {});
-            });
-    });
+  
 
 });

@@ -24,7 +24,9 @@ You can change time interval, message and goal from the options menu.
 
 ## App ScreenShots
 
+
 ###### Notifications
+
 
 
 

@@ -1,7 +1,7 @@
 body {
   margin: 10px;
   font: 84% Arial, sans-serif;
-  background: url(images/bg-5.webp) no-repeat center center fixed; 
+  background: url(images/bg-1.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -144,6 +144,7 @@ p{
  .save:hover{
   color: white;
   background-color: #00b6e8;
+  cursor: pointer;
 }
 .reset:hover{
   color: white;
