@@ -33,7 +33,7 @@ You can change time interval, message and goal from the options menu.
 
 
 ###### PopUp page
-<img src="images/Screen Shot 2019-09-21 at 12.45.39 AM.png" alt="drawing" width="100" hieght=""/>
+<img src="images/Screen Shot 2019-09-21 at 12.45.39 AM.png" alt="drawing" width="300" hieght=""/>
 
 
 
