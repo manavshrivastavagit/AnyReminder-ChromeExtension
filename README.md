@@ -25,13 +25,15 @@ You can change time interval, message and goal from the options menu.
 ## App ScreenShots
 
 
-###### Notifications
-
-
 
 
 ###### Options page
+<img src="images/Screen Shot 2019-09-21 at 12.44.38 AM.png" alt="drawing" width="450"/> 
 
+
+
+###### PopUp page
+<img src="images/Screen Shot 2019-09-21 at 12.45.39 AM.png" alt="drawing" width="" hieght="50"/>
 
 
 
